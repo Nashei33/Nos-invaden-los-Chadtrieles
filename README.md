@@ -33,9 +33,9 @@ El jugador cuenta con 3 tipos de defensas para ralentizar y frenar la invasión:
 
 | Estructura | Función Principal | Mecánica Incremental |
 | --- | --- | --- |
-| **Pinchos** | Daño por contacto / pasivo | Al subir de nivel, aumenta el daño por segundo (DPS) a todos los Chadtrieles que caminen sobre ellos. |
-| **Barricadas** | Freno físico (muro) | Cuentan con puntos de vida (HP). Detienen la marcha de los Chadtrieles hasta ser destruidas. Se pueden reparar o subir de vida máxima. |
-| **Bombas** | Daño masivo en área | Tienen un tiempo de recarga (Cooldown). Explotan al detectar varios Chadtrieles juntos, causando gran daño a varios objetivos. |
+| **Piso mojado** | Daño por contacto / pasivo | Al subir de nivel, aumenta el daño por segundo (DPS) a todos los Chadtrieles que caminen sobre ellos. |
+| **Puerta del baño** | Freno físico (muro) | Cuentan con puntos de vida (HP). Detienen la marcha de los Chadtrieles hasta ser destruidas. Se pueden reparar o subir de vida máxima. |
+| **Bomba de cloro** | Daño masivo en área | Tienen un tiempo de recarga (Cooldown). Explotan al detectar varios Chadtrieles juntos, causando gran daño a varios objetivos. |
 
 ---
 
