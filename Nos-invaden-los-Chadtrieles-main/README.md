@@ -1,45 +1,37 @@
-# Nos invaden los Chadtrieles!!!
-Juego incremental con mecánicas gacha
-En el juego, el malvado Chadtriel T. Pardo invade la escuela, enviando un ejercito de Chadtrieles, tu, como la ultima esperanza debes detenerlos y finalmente vencer a Chadtriel.
+# Nos invaden los Chadtrieles! 🏫💥
 
-## 1. Módulo Incremental (Defensa de la Escuela)
+## 1. Título del Proyecto
+**Nos invaden los Chadtrieles: Defensa Escolar**
 
-### 1.1. Premisa y Objetivo
+##  Descripción
+El malvado **Chadtriel T. Pardo** ha decidido invadir la escuela enviando hordas interminables de **Chadtrieles**. El objetivo de este juego web incremental de defensa (Tower Defense) es evitar que los enemigos logren llegar al punto crítico (la entrada de la escuela). 
 
-El malvado **Chadtriel T. Pardo** intenta invadir la escuela enviando hordas continuas de **Chadtrieles**. El objetivo principal del jugador es defender la entrada de la escuela (Punto X) eliminando a los enemigos antes de que rompan las defensas.
+Para lograrlo, el jugador administra recursos (**Monedas Escolares**) obtenidos al derrotar o frenar enemigos, utilizándolos para posicionar y mejorar estratégicamente tres estructuras de defensa fundamentales:
+- **Pinchos:** Daño pasivo constante a los enemigos que transitan sobre ellos.
+- **Barricadas:** Muros con puntos de vida (HP) que frenan físicamente el avance de la horda.
+- **Bombas:** Estructuras explosivas de daño masivo en área con tiempo de recarga.
 
----
+*(Nota sobre agentes de IA: Durante el desarrollo de este sistema, se emplean asistentes de IA como colaboradores de código para estructurar la lógica del bucle de juego en JavaScript, optimizar la interfaz web y organizar el control de versiones).*
 
-### 1.2. Bucle Principal de Juego (Game Loop)
+# Integrantes
+* Benjamín Ceballos
 
-El sistema incremental se basa en el avance constante de los enemigos y la acumulación progresiva de recursos:
+## Entorno y Requisitos
+Para ejecutar, probar y modificar este proyecto en tu entorno local, sigue estos pasos:
 
-1. **Aparición de enemigos:** Los Chadtrieles avanzan por el pasillo hacia la escuela en oleadas infinitas.
-2. **Defensa:** Las estructuras colocadas en el camino dañan, frenan o destruyen a los enemigos.
-3. **Recompensa:** Cada Chadtriel eliminado otorga **Monedas Escolares** (u oro/puntos).
-4. **Inversión:** El jugador usa las monedas para construir/mejorar estructuras o para usar el sistema Gacha.
+1. **Instalar Visual Studio Code:** Descarga e instala el editor de código desde la página oficial de VS Code
+2. **Instalar Extensiones Recomendadas:**
+   * **Live Server** (para visualizar los cambios en tiempo real en el navegador).
+3. **Clonar el Repositorio:**
+   Abre una terminal en tu computadora y clona el proyecto
+4. **Abrir el proyecto:**
+Abre la carpeta del repositorio clonado en Visual Studio Code.
+5. **Ejecutar la Aplicación:**
+Haz clic derecho sobre el archivo `index.html` y selecciona **"Open with Live Server"**, o abre el archivo directamente en tu navegador web de preferencia (Chrome, Edge o Firefox).
 
----
+## 5. Próximos Pasos (Roadmap de Entregables)
 
-### 1.3. Unidades Defensivas (Estructuras)
-
-El jugador cuenta con 3 tipos de defensas para ralentizar y frenar la invasión:
-
-| Estructura | Función Principal | Mecánica Incremental |
-| --- | --- | --- |
-| **Torreta** | Daño a Distancia / Ofensivo | Al subir de nivel, aumenta el daño de sus balas y la velocidad de disparo. |
-| **Puerta del baño** | Freno físico (muro) | Cuentan con puntos de vida (HP). Detienen la marcha de los Chadtrieles hasta ser destruidas. Se pueden reparar o subir de vida máxima. |
-| **Bomba de cloro** | Daño masivo en área | Tienen un tiempo de recarga (Cooldown). Explotan al detectar varios Chadtrieles juntos, causando gran daño a varios objetivos. |
-
----
-
-### 1.4. Progresión Incremental y Escalado
-
-Para mantener la dificultad y el interés a lo largo del tiempo, el juego escala automáticamente:
-
-* **Dificultad de la Horda:** Con cada oleada superada, los Chadtrieles ganan más vida y aumentan en numero.
-* **Costo de Estructuras:** Cada vez que compras o mejoras un tipo de estructura, el precio de la siguiente mejora aumenta exponencialmente.
-* **Jefe Final (Chadtriel T. Pardo):** Aparece cada cierto número de oleadas (ejemplo: cada 10 oleadas) como un enemigo especial con una gran barra de vida.
-
-Integrantes:
-Benjamín
+* **Fase 1 (Estructura Base):** Configuración de los archivos HTML, CSS y la lógica principal del bucle de juego (*Game Loop*) en JavaScript.
+* **Fase 2 (Mecánicas de Defensa):** Implementación de la colocación, costos y mejoras de las 3 estructuras (Pinchos, Barricadas y Bombas).
+* **Fase 3 (Sistema de Hordas y Escalado):** Programación de la aparición progresiva de enemigos, aumento de dificultad por oleadas y la llegada del jefe final (*Chadtriel T. Pardo*).
+* **Fase 4 (Pulido y Despliegue):** Diseño visual final, corrección de errores y publicación web definitiva del juego.
