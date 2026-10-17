@@ -7,7 +7,7 @@
 El malvado **Chadtriel T. Pardo** ha decidido invadir la escuela enviando hordas interminables de **Chadtrieles**. El objetivo de este juego web incremental de defensa (Tower Defense) es evitar que los enemigos logren llegar al punto crítico (la entrada de la escuela). 
 
 Para lograrlo, el jugador administra recursos (**Monedas Escolares**) obtenidos al derrotar o frenar enemigos, utilizándolos para posicionar y mejorar estratégicamente tres estructuras de defensa fundamentales:
-- **Torretas:** Daño pasivo constante a los enemigos que transitan sobre ellos.
+- **Torretas:** Daño a distancia sobre los enemigos.
 - **Barricadas:** Muros con puntos de vida (HP) que frenan físicamente el avance de la horda.
 - **Bombas:** Estructuras explosivas de daño masivo en área con tiempo de recarga.
 
