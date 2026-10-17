@@ -2,8 +2,6 @@
 Juego incremental con mecánicas gacha
 En el juego, el malvado Chadtriel T. Pardo invade la escuela, enviando un ejercito de Chadtrieles, tu, como la ultima esperanza debes detenerlos y finalmente vencer a Chadtriel.
 
-# Documentación del Proyecto: Nos invaden los Chadtrieles
-
 ## 1. Módulo Incremental (Defensa de la Escuela)
 
 ### 1.1. Premisa y Objetivo
