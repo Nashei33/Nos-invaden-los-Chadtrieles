@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>¡Nos invaden los Chadtrieles!</title>
+  <!-- Estilos visuales -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <h1>⚔️ ¡Nos invaden los Chadtrieles!</h1>
+  <p id="subtitulo">Defiende la escuela del malvado Chadtriel T. Pardo y sus secuaces.</p>
+
+  <!-- Badge de modo colocación -->
+  <div id="modo-badge">🖱️ Haz clic en el pasillo para colocar</div>
+
+  <!-- Contenedor principal -->
+  <div id="contenedor-principal">
+
+    <!-- CANVAS DEL JUEGO -->
+    <canvas id="canvas" width="920" height="600"></canvas>
+
+    <!-- PANEL LATERAL -->
+    <div id="panel">
+
+      <!-- ESTADO DEL JUEGO -->
+      <div class="card">
+        <h2>📊 Estado</h2>
+        <div id="stats-grid">
+          <div class="stat-item">
+            <div class="stat-label">💰 Monedas</div>
+            <div class="stat-value" id="stat-monedas">0</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">🌊 Oleada</div>
+            <div class="stat-value" id="stat-oleada">0</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">💀 Eliminados</div>
+            <div class="stat-value" id="stat-eliminados">0</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">😈 Llegaron</div>
+            <div class="stat-value" id="stat-llegaron">0</div>
+          </div>
+        </div>
+        <div style="margin-top:8px; font-size:0.78rem;">
+          🏫 Vida escuela: <span id="stat-vida-num" style="color:#e74c3c;font-weight:bold;">100/100</span>
+        </div>
+        <div id="barra-vida-wrap">
+          <div id="barra-vida" style="width:100%"></div>
+        </div>
+      </div>
+
+      <!-- BOTÓN OLEADA -->
+      <div class="card">
+        <button id="btn-oleada">▶ Iniciar Oleada 1</button>
+        <div id="instruccion" style="margin-top:6px;"></div>
+      </div>
+
+      <!-- ESTRUCTURAS -->
+      <div class="card">
+        <h2>🏗️ Estructuras</h2>
+
+        <!-- TORRETAS -->
+        <div class="estructura-item" id="ui-torretas">
+          <div class="estructura-nombre" style="color:#e74c3c;">
+            <img src="img/torretas.png" class="estructura-thumb"
+                 onerror="this.style.display='none'" alt="torretas">
+            🎯 Torretas
+          </div>
+          <div class="estructura-desc">Se coloca fuera del pasillo. Dispara a enemigos en rango.</div>
+          <div class="estructura-stats" id="stats-torretas">Daño: 15 | Disp: 1.0s | Nivel: 1</div>
+          <div class="btn-row">
+            <button class="btn-comprar" onclick="seleccionarEstructura('torretas')">
+              Colocar (<span id="costo-torretas">15</span>🪙)
+            </button>
+            <button class="btn-mejorar" onclick="mejorarEstructura('torretas')" id="btn-mej-torretas">
+              Mejorar (<span id="mejora-torretas">30</span>🪙)
+            </button>
+          </div>
+        </div>
+
+        <!-- BARRICADAS -->
+        <div class="estructura-item" id="ui-barricadas">
+          <div class="estructura-nombre" style="color:#3498db;">
+            <img src="img/barricadas.png" class="estructura-thumb"
+                 onerror="this.style.display='none'" alt="barricadas">
+            🚧 Puerta del baño
+          </div>
+          <div class="estructura-desc">Muro con HP que bloquea físicamente el paso.</div>
+          <div class="estructura-stats" id="stats-barricadas">HP: 200 | Nivel: 1</div>
+          <div class="btn-row">
+            <button class="btn-comprar" onclick="seleccionarEstructura('barricadas')">
+              Colocar (<span id="costo-barricadas">25</span>🪙)
+            </button>
+            <button class="btn-mejorar" onclick="mejorarEstructura('barricadas')" id="btn-mej-barricadas">
+              Mejorar (<span id="mejora-barricadas">50</span>🪙)
+            </button>
+          </div>
+        </div>
+
+        <!-- BOMBAS -->
+        <div class="estructura-item" id="ui-bombas">
+          <div class="estructura-nombre" style="color:#f39c12;">
+            <img src="img/bombas.png" class="estructura-thumb"
+                 onerror="this.style.display='none'" alt="bombas">
+            💣 Bomba De Cloro
+          </div>
+          <div class="estructura-desc">Explosión en área. Tiene cooldown de recarga.</div>
+          <div class="estructura-stats" id="stats-bombas">Daño: 80 | CD: 8s | Nivel: 1</div>
+          <div class="btn-row">
+            <button class="btn-comprar" onclick="seleccionarEstructura('bombas')">
+              Colocar (<span id="costo-bombas">40</span>🪙)
+            </button>
+            <button class="btn-mejorar" onclick="mejorarEstructura('bombas')" id="btn-mej-bombas">
+              Mejorar (<span id="mejora-bombas">80</span>🪙)
+            </button>
+          </div>
+        </div>
+
+        <!-- Botón reparar barricadas -->
+        <button class="btn-reparar" style="width:100%;margin-top:4px;"
+          onclick="repararBarricadas()" id="btn-reparar">
+          🔧 Reparar Barricadas (<span id="costo-reparar">20</span>🪙)
+        </button>
+      </div>
+
+      <!-- LOG -->
+      <div class="card">
+        <h2>📜 Registro</h2>
+        <div id="log"></div>
+      </div>
+
+    </div><!-- fin panel -->
+  </div><!-- fin contenedor principal -->
+
+  <!-- PANTALLA DE GAME OVER -->
+  <div id="pantalla-gameover">
+    <h2>💥 ¡La escuela cayó!</h2>
+    <p>Los Chadtrieles lograron invadir gracias al villano <strong>Chadtriel T. Pardo</strong>.</p>
+    <div class="stats-final" id="stats-final-texto"></div>
+    <button id="btn-reiniciar" onclick="reiniciarJuego()">🔄 Reiniciar partida</button>
+  </div>
+
+  <!--
+    Orden de carga de scripts:
+    1. config.js  → constantes y valores ajustables (estadísticas, costos, camino)
+    2. juego.js   → toda la lógica del juego (game loop, dibujo, mecánicas)
+  -->
+  <script src="js/config.js"></script>
+  <script src="js/juego.js"></script>
+
+</body>
+</html>
